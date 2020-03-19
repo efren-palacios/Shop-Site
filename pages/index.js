@@ -1,203 +1,101 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/styles';
+import { motion } from "framer-motion"
+import Button from '@material-ui/core/Button'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Chip from '@material-ui/core/Chip';
+import { Box } from '@material-ui/core';
+import Link from 'next/link';
 
-const Home = () => (
-  <div className="container">
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
 
-    <main>
-      <h1 className="title">
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
-      </h1>
+const useStyles = makeStyles({
+  root: {
+    background: '#E3F2FD',
+  },
+  image: {
+    width: '100%',
+    height: 'auto',
+    maxWidth: '450px',
+    cursor: 'pointer'
+  }
+})
 
-      <p className="description">
-        Get started by editing <code>pages/index.js</code>
-      </p>
+function Index() {
+  const classes = useStyles();
 
-      <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className="card"
-        >
-          <h3>Deploy &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with ZEIT Now.
-          </p>
-        </a>
-      </div>
-    </main>
-
-    <footer>
-      <a
-        href="https://zeit.co?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
-      </a>
-    </footer>
-
-    <style jsx>{`
-      .container {
-        min-height: 100vh;
-        padding: 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      main {
-        padding: 5rem 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      footer {
-        width: 100%;
-        height: 100px;
-        border-top: 1px solid #eaeaea;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      footer img {
-        margin-left: 0.5rem;
-      }
-
-      footer a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .title a {
-        color: #0070f3;
-        text-decoration: none;
-      }
-
-      .title a:hover,
-      .title a:focus,
-      .title a:active {
-        text-decoration: underline;
-      }
-
-      .title {
-        margin: 0;
-        line-height: 1.15;
-        font-size: 4rem;
-      }
-
-      .title,
-      .description {
-        text-align: center;
-      }
-
-      .description {
-        line-height: 1.5;
-        font-size: 1.5rem;
-      }
-
-      code {
-        background: #fafafa;
-        border-radius: 5px;
-        padding: 0.75rem;
-        font-size: 1.1rem;
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-      }
-
-      .grid {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-
-        max-width: 800px;
-        margin-top: 3rem;
-      }
-
-      .card {
-        margin: 1rem;
-        flex-basis: 45%;
-        padding: 1.5rem;
-        text-align: left;
-        color: inherit;
-        text-decoration: none;
-        border: 1px solid #eaeaea;
-        border-radius: 10px;
-        transition: color 0.15s ease, border-color 0.15s ease;
-      }
-
-      .card:hover,
-      .card:focus,
-      .card:active {
-        color: #0070f3;
-        border-color: #0070f3;
-      }
-
-      .card h3 {
-        margin: 0 0 1rem 0;
-        font-size: 1.5rem;
-      }
-
-      .card p {
-        margin: 0;
-        font-size: 1.25rem;
-        line-height: 1.5;
-      }
-
-      @media (max-width: 600px) {
-        .grid {
-          width: 100%;
-          flex-direction: column;
-        }
-      }
-    `}</style>
-
+  let data = [
+    {
+      "id": "ghost-whey-x-chips-ahoy",
+      "name": "Ghost Whey X Chips Ahoy",
+      "details": "We've said it before and we will say it again, nothing beats the real thing. With years of R&D and REAL CHIPS AHOY!® cookie pieces in every scoop, this flavor is second to none.",
+      "price": "$39.99",
+      "image": "https://cdn.shopify.com/s/files/1/2060/6331/products/image.png?v=1571331841"
+    },
+    {
+      "id": "ghost-whey-vegan",
+      "name": "GHOST® Vegan Protein",
+      "details": "GHOST Vegan Protein combines a premium, fully disclosed vegan protein blend with industry-leading flavors...what more could you ask for?",
+      "price": "$49.99",
+      "image": "https://cdn.shopify.com/s/files/1/2060/6331/products/Vegan.png?v=1574882358"
+    }
+  ]  
+  return (
+    <motion.div className={classes.root} style={{minHeight: '100vh'}} exit={{opacity: 0}}>
+      <Head>
+        <title>Product Page</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{delay: .2}}> 
+    <Grid container>
+      <Grid item container xs={12} alignItems="center" justify="space-around">
+          <Box>
+            <motion.div motion initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ ease: "easeInOut" }}>
+            <h1>Select A Product</h1>
+            </motion.div>
+          </Box>
+          <Grid item container xs={12} alignItems="center" justify="center" >
+            {data.map(item => (
+              <Box p={6} key={item.id}>
+                <Grid item container alignItems="center" justify="center" >
+                  <motion.div motion initial={{ y: -60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ ease: "easeInOut", delay: .2 }}>
+                    <h2>{item.name}</h2>
+                  </motion.div>
+                </Grid>
+                <Link href={'/product/[id]'} as={`/product/${item.id}`}>
+                  <motion.img className={classes.image} whileTap={{ scale: 1.1 }} whileHover={{ scale: 1.1 }} initial={{ x: 60, opacity: 0 }} animate={{ x: 0, opacity: 1 }} src={item.image} />
+                </Link>
+                <Grid item container alignItems="center" justify="center">
+                  <motion.div motion initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ ease: "easeInOut" }}>
+                  <h1>{item.price}</h1>
+                  </motion.div>
+                </Grid>
+              </Box>
+            ))}
+          </Grid>
+      </Grid>
+    </Grid>
+    </motion.div>
     <style jsx global>{`
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      }
+    @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap");
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100vh;
+      min-height: -moz-available; /* WebKit-based browsers will ignore this. */
+      min-height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+      min-height: fill-available;
+      font-family: "Poppins", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+  `}</style>
+    </motion.div>
+  )
+}
 
-      * {
-        box-sizing: border-box;
-      }
-    `}</style>
-  </div>
-)
-
-export default Home
+export default Index
