@@ -1,3 +1,6 @@
 module.exports = {
-  assetPrefix: "/shop"
+  assetPrefix: "/shop",
+  devIndicators: {
+    autoPrerender: false
+  }
 }
