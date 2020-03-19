@@ -63,7 +63,7 @@ function Index() {
                     <h2>{item.name}</h2>
                   </motion.div>
                 </Grid>
-                <Link href={'/product/[id]'} as={`/shop/product/${item.id}`}>
+                <Link href={'/shop/product/[id]'} as={`/shop/product/${item.id}`}>
                   <motion.img className={classes.image} whileTap={{ scale: 1.1 }} whileHover={{ scale: 1.1 }} initial={{ x: 60, opacity: 0 }} animate={{ x: 0, opacity: 1 }} src={item.image} />
                 </Link>
                 <Grid item container alignItems="center" justify="center">
