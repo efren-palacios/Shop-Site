@@ -38,7 +38,7 @@ const Product = ({product}) => {
       </Head>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{delay: .2}} >
       <Grid container >
-        <Button color="primary" className={classes.back} href="/" >
+        <Button color="primary" className={classes.back} href="/shop" >
           <ArrowBackIcon /> Back to Products
         </Button>
         <Grid item container className={classes.base} lg={6} xs={12} alignItems="center" justify="center">
