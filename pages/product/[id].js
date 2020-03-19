@@ -23,7 +23,8 @@ const useStyles = makeStyles({
     top: 25
   },
   image: {
-    width: '80%',
+    width: '100%',
+    maxWidth: '450px'
   }
 })
 
@@ -50,10 +51,8 @@ const Product = ({product}) => {
               <p>Protein</p>
               <h1>{product.name}</h1>
               <p>{product.details}</p>
-              <Grid item container justify="space-between" lg={5} xs={6}>
-                <Chip label="Soy Free" color="primary" variant="outlined" />
+                <Chip label="Soy Free" color="primary" variant="outlined" style={{marginRight: '5px'}} />
                 <Chip label="Gluten Free" color="primary" variant="outlined" />
-              </Grid>
               <Grid item container xs={12} justify="flex-end">
                 <h1>{product.price}</h1>
               </Grid>
