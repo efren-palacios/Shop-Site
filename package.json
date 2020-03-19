@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next -p 1111"
   },
   "dependencies": {
     "@chakra-ui/core": "^0.6.1",
